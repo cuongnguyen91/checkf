@@ -1,2 +1,3 @@
 # checkf
-check file&lt;b>./checkf file_name&lt;/b>
+check file
+<p><code>./checkf <file_name></p></code>
