@@ -1,14 +1,18 @@
 #!/bin/bash
-if [ $# -ne 1 ]
+if [ $# -lt 1 ]
 then
-	echo -e "please use:/n./checkf <file_name>"
+	echo -e "please use:/n./checkf <file_name1> <file_name2>"
 	exit 1
 else
-	f="$1"
+	f=( "$@" )
+	index=$((${#f[@]} - 1))
 fi
-if [ -f "$f" ]
-then
-	echo "path of file: "$PWD"/"$1""
-else
-	echo "file not exist"
-fi
+for file in "${f[@]}"
+do
+	if [ -f "$file" ]
+	then
+		echo "path of file: \""$PWD"/"$file"\""
+	else
+		echo "file \"$file\" not exist"
+	fi
+done
